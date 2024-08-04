@@ -1,6 +1,6 @@
 import { select } from 'cirql';
-import OrganisationSchema from './schema';
-import { db } from '@/db';
+import { db } from '@/lib/db';
+import { OrganisationSchema } from '@/schemas';
 
 export async function GetOrganization() {
     try {
