@@ -1,3 +1,3 @@
-import OrganisationSchema from "./organization";
+import OrganisationSchema, { OrganisationRecordSchemaType } from "./organization";
 
-export { OrganisationSchema }
+export { OrganisationSchema, type OrganisationRecordSchemaType }

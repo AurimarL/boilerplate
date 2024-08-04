@@ -4,18 +4,15 @@ import { Cirql } from 'cirql';
 
 let db: Cirql;
 
-export async function initDb(): Promise<Cirql> {
+export async function initDb(): Promise<Cirql | undefined> {
     if (db) return db;
     db = new Cirql();
     try {
-        await db.handle.connect("http://127.0.0.1:8000/rpc");
-        await db.handle.signin(
-            {
-                namespace: "test",
-                database: "test",
-                password: "",
-                username: "",
-            });
+        await db.handle.connect("http://localhost:8000/", {
+            namespace: "root",
+            database: "root"
+        });
+        
         return db;
     } catch (err) {
         console.error("Failed to connect to SurrealDB:", err);
@@ -37,6 +34,6 @@ export function getDb(): Cirql | undefined {
     return db;
 }
 
-db = await initDb()
+db = (await initDb())!
 
 export { db }

@@ -1,4 +1,18 @@
-// Organization;
 
-import { GetOrganization } from "./organization";
-export { GetOrganization }
+// Organization
+
+import {
+    getById as GetOrganizationById,
+    getAll as GetAllOrganizations,
+    createOne as CreateOneOrganization,
+    countAll as CountAllOrganization,
+} from "./organization";
+
+export {
+    GetOrganizationById,
+    GetAllOrganizations,
+    CreateOneOrganization,
+    CountAllOrganization,
+}
+
+//
