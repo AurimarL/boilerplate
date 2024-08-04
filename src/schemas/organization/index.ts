@@ -8,5 +8,5 @@ const OrganisationSchema = RecordSchema.extend({
 });
 export default OrganisationSchema;
 
-type OrganisationRecordSchemaType = z.infer<typeof OrganisationSchema>;
-export type { OrganisationRecordSchemaType }
+type OrganisationSchemaType = z.infer<typeof OrganisationSchema>;
+export type { OrganisationSchemaType }

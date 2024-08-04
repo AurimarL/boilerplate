@@ -1,6 +1,6 @@
 import { db } from '@/lib/db';
 import { select, create, count } from 'cirql';
-import { OrganisationSchema, type OrganisationRecordSchemaType } from '@/schemas';
+import { OrganisationSchema, type OrganisationSchemaType } from '@/schemas';
 
 // Fetch an organization by its ID
 export async function getById({ id }: { id: string }) {
@@ -16,8 +16,14 @@ export async function getById({ id }: { id: string }) {
     }
 }
 
-// Fetch all organizations with a limit
-export async function getAll(limit = 10) {
+/**
+ * Fetch all organizations with an optional limit.
+ *
+ * @param limit - The maximum number of organizations to fetch. Defaults to 10.
+ * @returns A promise that resolves to an array of organizations.
+ * @throws Will throw an error if the fetch operation fails.
+ */
+export async function getAll(limit: number = 10): Promise<OrganisationSchemaType[]> {
     try {
         const result = await db.execute({
             query: select().from('organization').limit(limit),
@@ -31,7 +37,7 @@ export async function getAll(limit = 10) {
 }
 
 // Create a new organization
-export async function createOne({ organizationInput }: { organizationInput: OrganisationRecordSchemaType }) {
+export async function createOne({ organizationInput }: { organizationInput: OrganisationSchemaType }) {
     try {
         const result = await db.execute({
             query: create("organization")
