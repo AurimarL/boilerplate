@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { HandleClick } from "./functions";
+import ClickButton from "@/components/common/ClickButton";
 
 /**
  * ### A Simple Client button calling for a Server Function (action)
@@ -9,7 +9,7 @@ import { HandleClick } from "./functions";
 export default function ClientToServerClickButton() {
     return (
         <form action={HandleClick}>
-            <Button type="submit">Click</Button>
+            <ClickButton />
         </form>
     )
 }
