@@ -1,4 +1,4 @@
-import { Entity, Column } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../base.entity';
 import { ApiProperty, ApiTags, } from '@nestjs/swagger';
 import { TodoStatus } from 'shared/enum/todo/TodoStatus.enum';
@@ -19,4 +19,6 @@ export class Todo extends BaseEntity {
     @ApiProperty()
     status: TodoStatus;
 
+    @Column()
+    creatorId: string;
 }

@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from 'shared/dto/user/create-user.dto';
 import { UpdateUserDto } from 'shared/dto/user/update-user.dto';
+import { GetAllUserUseCase } from './usecases/get-all-user.usecase';
+import { CreateUserUseCase } from './usecases/create-user.usecase';
 
 @Injectable()
 export class UserService {
+
+  constructor(
+    private readonly getAllUserUseCase: GetAllUserUseCase,
+    private readonly createUserUseCase: CreateUserUseCase
+  ) {
+
+  }
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    return this.createUserUseCase.execute(createUserDto)
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.getAllUserUseCase.execute();
   }
 
   findOne(id: number) {
