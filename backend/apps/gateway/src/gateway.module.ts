@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TodoModule } from './todo/todo.module';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/main/user/user.module';
+import { AuthModule } from './modules/main/auth/auth.module';
 
 @Module({
-  imports: [TodoModule, UserModule],
+  imports: [UserModule, AuthModule],
   controllers: [],
   providers: [],
 })
-export class GatewayModule { }
+export class GatewayModule {}

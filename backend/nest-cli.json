@@ -19,22 +19,13 @@
         "tsConfigPath": "apps/gateway/tsconfig.app.json"
       }
     },
-    "todo": {
+    "main": {
       "type": "application",
-      "root": "apps/todo",
+      "root": "apps/main",
       "entryFile": "main",
-      "sourceRoot": "apps/todo/src",
+      "sourceRoot": "apps/main/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/todo/tsconfig.app.json"
-      }
-    },
-    "user": {
-      "type": "application",
-      "root": "apps/user",
-      "entryFile": "main",
-      "sourceRoot": "apps/user/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/user/tsconfig.app.json"
+        "tsConfigPath": "apps/main/tsconfig.app.json"
       }
     }
   }
